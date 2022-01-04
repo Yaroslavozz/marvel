@@ -1,10 +1,10 @@
 import './singleCharacterPage.scss';
-import AppBanner from '../appBanner/AppBanner';
+import AppBanner from '../../appBanner/AppBanner';
 
-const SingleCharacterPage = () => {
-    const data = JSON.parse(localStorage.getItem('charData'));
+const SingleCharacterPage = ({data}) => {
+    const storage = data || JSON.parse(localStorage.getItem('charData'));
 
-    const {name, description, thumbnail} = data[0];
+    const {name, description, thumbnail} = storage[0];
 
     return (
         <>
