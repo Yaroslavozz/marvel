@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './singleComicPage.scss';
-import xMen from '../../../resources/img/x-men.png';
+import AppBanner from '../../appBanner/AppBanner';
 import { useParams, Link } from 'react-router-dom';
 import useMarvelService from '../../../services/MarvelService';
 import Page404  from '../404';
@@ -33,11 +33,15 @@ const onComicLoaded = (comicObj) => {
   const content = !(loading || error || Object.keys(comic).length === 0) ? <View comic={comic} /> : null;
 
     return (
-      <div className="single-comic">
-          {errorMessage}
-          {spinner}
-          {content}
-      </div>
+      <>
+        <AppBanner />
+        <div className="single-comic">
+            {errorMessage}
+            {spinner}
+            {content}
+        </div>
+      </>
+      
     )
 }
 
